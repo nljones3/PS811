@@ -1,0 +1,53 @@
+---
+name: Natalie 
+surname: Jones-Kerwin
+position: "Political Science Ph.D Student"
+address: "1815 University Ave, Unit 122 Madison, WI 53726"
+phone: +1 262 844 9298
+email: "Nljones3@wisc.edu"
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::hyndman
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+# Some stuff about me
+
+ * I am from Wisconsin
+ * I am in the Bad River of Lake Superior Chippewa Native American Tribe
+ * I am the first in my family to graduate from college.
+
+# Education
+ * Undergrad: Iowa State University 
+ * Graduate: University of Wisconsin Madison 
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "B.S. in Political Science", "2017-2021", "Iowa State University", "Ames, Iowa",
+  "Ph.D. in Politcal Science", "2021-", "University of Wisconsin Madison", "Madison, Wisconsin",
+
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+# Awards
+
+```{r}
+tribble(
+  ~Year, ~Type, ~Desc,
+  2021, "SHEA Native Scholarship", "Awarded for work on Native Politics and pursuance of graduate degree",
+  2021, "Delta Zeta Graduate Scholarship", "Awarded for her dedication to higher education"
+) %>% 
+  brief_entries(
+    glue::glue(" Award: {Type}"),
+    Year, 
+    Desc
+  )
+```
+
+
